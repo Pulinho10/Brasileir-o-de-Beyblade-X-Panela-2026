@@ -94,7 +94,7 @@
               <select id="playerA" required></select>
             </label>
             <label>Placar
-              <input id="scoreA" type="number" min="0" step="1" value="0" required />
+              <input id="scoreA" type="number" min="0" step="1" value="0" readonly aria-readonly="true" />
             </label>
             <h4>Peças / deck utilizado</h4>
             <div id="deckA"></div>
@@ -108,15 +108,44 @@
               <select id="playerB" required></select>
             </label>
             <label>Placar
-              <input id="scoreB" type="number" min="0" step="1" value="0" required />
+              <input id="scoreB" type="number" min="0" step="1" value="0" readonly aria-readonly="true" />
             </label>
             <h4>Peças / deck utilizado</h4>
             <div id="deckB"></div>
           </div>
         </div>
 
+        <div class="card form-card battle-score-card">
+          <div class="section-head">
+            <div>
+              <h3>2. Pontuação por batalha</h3>
+              <p class="hint score-help">Registre cada decisão na ordem em que ocorreu. O placar acima é calculado automaticamente.</p>
+            </div>
+            <span class="badge">Spin 1 • Over 2 • Burst 2 • Extreme 3</span>
+          </div>
+          <div class="battle-entry-grid interactive-score-entry">
+            <label>Vencedor da batalha
+              <select id="battleWinner">
+                <option value="A">Jogador A</option>
+                <option value="B">Jogador B</option>
+              </select>
+            </label>
+            <div class="finish-picker" role="group" aria-label="Tipo de pontuação">
+              <span class="finish-picker-label">Toque no tipo de pontuação para registrar</span>
+              <div class="finish-buttons">
+                <button type="button" class="finish-btn spin" data-finish="spin" aria-label="Registrar Spin Finish, 1 ponto"><strong>Spin Finish</strong><span>+1</span></button>
+                <button type="button" class="finish-btn over" data-finish="over" aria-label="Registrar Over Finish, 2 pontos"><strong>Over Finish</strong><span>+2</span></button>
+                <button type="button" class="finish-btn burst" data-finish="burst" aria-label="Registrar Burst Finish, 2 pontos"><strong>Burst Finish</strong><span>+2</span></button>
+                <button type="button" class="finish-btn extreme" data-finish="extreme" aria-label="Registrar Extreme Finish, 3 pontos"><strong>Extreme Finish</strong><span>+3</span></button>
+              </div>
+              <div class="finish-action-hint">Cada toque adiciona imediatamente uma batalha ao placar.</div>
+            </div>
+          </div>
+          <div id="battleResults" class="battle-results list-empty">Nenhuma batalha registrada.</div>
+        </div>
+
         <div class="card form-card">
-          <h3>2. Detalhes e observações</h3>
+          <h3>3. Detalhes e observações</h3>
           <label>Observações da arbitragem
             <textarea id="notes" rows="3" placeholder="Ocorrências, advertências, repetição de lançamento, substituições autorizadas etc."></textarea>
           </label>
